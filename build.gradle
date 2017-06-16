@@ -1,0 +1,64 @@
+/*
+ * Copyright (C) 2017 ONLINICO OU
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext {
+        min_sdk_version = 16
+        target_sdk_version = 26
+        compile_sdk_version = 26
+        build_tools_version = '26.0.0'
+        gradle_plugin_version = '2.3.2'
+
+        support_version = '26.0.0-beta2'
+        kotlin_version = '1.1.2-5'
+        sqldelight_version = '0.6.1'
+        rx_android_version = '2.0.1'
+        rx_java_version = '2.1.0'
+        sqlbrite_version = '1.1.1'
+        dagger_version = '2.8'
+        junit_version = '4.12'
+        mockito_version = '1.10.19'
+        retrofit_version = '2.3.0'
+        okhttp_version = '3.4.1'
+        timber_version = '4.5.1'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven {
+            url 'https://dl.bintray.com/kotlin/kotlin-dev'
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_plugin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.squareup.sqldelight:gradle-plugin:$sqldelight_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            url 'https://dl.bintray.com/kotlin/kotlin-dev'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

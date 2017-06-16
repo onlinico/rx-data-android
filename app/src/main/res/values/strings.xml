@@ -1,0 +1,25 @@
+<!--
+  ~ Copyright (C) 2017 ONLINICO OU
+  ~
+  ~ This software may be modified and distributed under the terms
+  ~ of the MIT license.  See the LICENSE file for details.
+  -->
+
+<resources>
+    <string name="app_name">rxdata</string>
+    <string name="title_activity_vehicles_list">Vehicles list</string>
+    <string name="title_activity_vehicle_details">Vehicle details</string>
+
+    <string name="toast_note_fetching_error_unauthorized">Unable to fetch notes, unauthorized
+    </string>
+    <string name="toast_note_fetching_error_connectivity_issue">Unable to fetch notes, check
+        Internet connection
+    </string>
+    <string name="toast_note_fetching_error_invalid_response">Unable to fetch notes, invalid
+        response
+    </string>
+    <string name="toast_note_fetching_error_internal_error">Unable to fetch notes, internal error
+    </string>
+    <string name="toast_note_fetching_error">Unable to fetch notes</string>
+    <string name="toast_unable_to_load_vehicle_data">Unable to load vehicle data</string>
+</resources>

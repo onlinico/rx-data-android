@@ -1,0 +1,52 @@
+import co.onlini.rxdata.data.model.BodyType;
+import co.onlini.rxdata.data.model.Vin;
+
+CREATE TABLE vehicle (
+    _id INTEGER NOT NULL PRIMARY KEY,
+    vin TEXT AS Vin NOT NULL,
+    owner_id INTEGER NOT NULL,
+    plate_number TEXT NOT NULL,
+    manufacturer TEXT NOT NULL,
+    model TEXT NOT NULL,
+    body_type INTEGER AS BodyType NOT NULL,
+    color INTEGER DEFAULT 0,
+    FOREIGN KEY (owner_id) REFERENCES person(_id) ON DELETE CASCADE
+);
+
+select_all_vehicles:
+SELECT *
+FROM vehicle;
+
+select_vehicle_by_id:
+SELECT *
+FROM vehicle
+WHERE _id = ?
+LIMIT 1;
+
+select_vehicles_by_owner_name:
+SELECT *
+FROM vehicle
+WHERE vehicle.owner_id = (SELECT person._id FROM person
+    WHERE person.first_name LIKE '%' || ?1 || '%' OR person.last_name LIKE '%' || ?1 || '%'
+);
+
+select_vehicle_plate_number_and_owner_name:
+SELECT person.first_name, person.last_name, vehicle.plate_number
+FROM vehicle
+JOIN person ON vehicle.owner_id = person._id;
+
+insert_or_replace_vehicle:
+INSERT OR REPLACE INTO vehicle VALUES (?,?,?,?,?,?,?,?);
+
+update_vehicle:
+UPDATE vehicle
+SET vin = ?, owner_id = ?, plate_number = ?, manufacturer=?, model=?, body_type=?,color=?
+WHERE _id = ?;
+
+delete_vehicle:
+DELETE FROM vehicle
+WHERE _id = ?;
+
+delete_vehicles_by_owner:
+DELETE FROM vehicle
+WHERE owner_id = ?;

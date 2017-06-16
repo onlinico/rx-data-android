@@ -1,0 +1,27 @@
+import co.onlini.rxdata.data.model.Vin;
+
+CREATE TABLE person (
+    _id INTEGER NOT NULL PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    phone TEXT
+);
+
+select_people:
+SELECT *
+FROM person;
+
+insert_person:
+INSERT INTO person VALUES (?, ?, ?, ?);
+
+update_person:
+UPDATE person
+SET first_name = ?, last_name = ?, phone = ?
+WHERE _id = ?;
+
+delete_person:
+DELETE FROM person
+WHERE _id = ?;
+
+delete_person_all:
+DELETE FROM person;
